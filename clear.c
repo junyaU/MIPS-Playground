@@ -8,7 +8,7 @@ void clear_1(int array[], int size) {
 void clear_2(int *array, int size) {
   int *p;
 
-  for (p = &array[0]; p < &array[size]; p++) {
+  for (p = &array[0]; p < &array[size]; ++p) {
     *p = 0;
   }
 }
