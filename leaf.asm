@@ -1,7 +1,5 @@
 leaf:
-    addi, $sp, $sp, -12
-    sw $t1, 8($sp)
-    sw $t0, 4($sp)
+    addi, $sp, $sp, -4
     sw $s1, 0($sp)
 
     add $t0, $a0, $a1
@@ -10,9 +8,10 @@ leaf:
 
     add $v0, $s1, $zero
 
-    lw $t1, 8($sp)
-    lw $t0, 4($sp)
     lw $s1, 0($sp)
-    addi $sp, $sp, 12
+    addi $sp, $sp, 4
 
     jr $ra
+
+; caller-saved registers: $t0, $t1, $t2, $t3, $t4, $t5, $t6, $t7, $t8, $t9
+; callee-saved registers: $s0, $s1, $s2, $s3, $s4, $s5, $s6, $s7, $s8, $s9
