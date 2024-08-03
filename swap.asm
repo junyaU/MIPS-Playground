@@ -1,12 +1,13 @@
 swap:
-    add $t0, $t0, $zero ; initialize temp to 0
-    sll $t1, $a1, 2 ; t1 = i
-    add $t1, $t1, $a0 ; t1 = A + i
+    sll $t0, $a1, 2
+    add $t0, $t0, $a0
+    
+    lw $t1, 0($t0)
+    lw $t2, 4($t0)
 
-    lw $t0, 0($t1) ; temp = A[i]
-    lw $t2, 4($t1) ; t2 = A[i + 1]
+    sw $t2, 0($t0)
+    sw $t1, 4($t0)
 
-    sw $t2, 0($t1) ; A[i] = A[i + 1]
-    sw $t0, 4($t1) ; A[i + 1] = temp
+    jr $ra
 
-    jr $ra ; return
+; リーフ手続きのため、レジスタの退避・復帰は不要になる。
